@@ -17,6 +17,24 @@ function main() {
         -0.4, 0.6,
         -0.4, 0.2,
         -0.7, 0.2,
+        
+        // angka 2
+        0.0, 0.22,
+        0.0, 0.1,
+        0.5, 0.1,
+        0.5, 0.2,
+        0.15, 0.2,
+        0.5, 0.4,
+        0.5, 0.6,
+        0.4, 0.7,
+        0.1, 0.7,
+        0.0, 0.6,
+        0.0, 0.45,
+        0.12, 0.45,
+        0.12, 0.6,
+        0.4, 0.6,
+        0.4, 0.47,
+
 
         1.0, 1.0, 0.0,
         0.7, 0.0, 1.0,
@@ -65,14 +83,16 @@ function main() {
     var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
     var aColor = gl.getAttribLocation(shaderProgram, "aColor");
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
-    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 5 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
+    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(aPosition);
     gl.enableVertexAttribArray(aColor);
 
-    gl.clearColor(0.5, 0.6, 0.75, 1.0); // Merah, Hijau, Biru, Transparansi
+    gl.clearColor(0.2, 0.2, 0.2, 1.0); // Merah, Hijau, Biru, Transparansi
     gl.clear(gl.COLOR_BUFFER_BIT);
     
     gl.drawArrays(gl.LINE_LOOP, 0, 8);
     gl.drawArrays(gl.LINE_LOOP, 8, 4);
+
+    gl.drawArrays(gl.LINE_LOOP, 12, 15);
 
 }
