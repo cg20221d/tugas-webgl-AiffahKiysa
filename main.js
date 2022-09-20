@@ -35,6 +35,21 @@ function main() {
         0.4, 0.6,
         0.4, 0.47,
 
+        // huruf F
+        -0.8, -0.7,
+        -0.7, -0.7,
+        -0.7, -0.1,
+        -0.8, -0.1,
+
+        -0.7, -0.1,
+        -0.3, -0.1,
+        -0.3, -0.2,
+        -0.7, -0.2,
+
+        -0.7, -0.3,
+        -0.3, -0.3,
+        -0.3, -0.4,
+        -0.7, -0.4,
 
         1.0, 1.0, 0.0,
         0.7, 0.0, 1.0,
@@ -87,12 +102,16 @@ function main() {
     gl.enableVertexAttribArray(aPosition);
     gl.enableVertexAttribArray(aColor);
 
-    gl.clearColor(0.2, 0.2, 0.2, 1.0); // Merah, Hijau, Biru, Transparansi
+    gl.clearColor(0.2, 0.2, 0.25, 1.0); // Merah, Hijau, Biru, Transparansi
     gl.clear(gl.COLOR_BUFFER_BIT);
     
     gl.drawArrays(gl.LINE_LOOP, 0, 8);
     gl.drawArrays(gl.LINE_LOOP, 8, 4);
 
     gl.drawArrays(gl.LINE_LOOP, 12, 15);
+
+    gl.drawArrays(gl.TRIANGLE_FAN, 27, 4);
+    gl.drawArrays(gl.TRIANGLE_FAN, 31, 4);
+    gl.drawArrays(gl.TRIANGLE_FAN, 35, 4);
 
 }
