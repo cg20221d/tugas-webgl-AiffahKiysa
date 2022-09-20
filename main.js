@@ -18,6 +18,10 @@ function main() {
         -0.4, 0.2,
         -0.7, 0.2,
 
+        1.0, 1.0, 0.0,
+        0.7, 0.0, 1.0,
+        0.1, 1.0, 0.6,
+
     ];
 
     var buffer = gl.createBuffer();
@@ -27,10 +31,10 @@ function main() {
     // Vertex shader
     var vertexShaderCode = `
     attribute vec2 aPosition;
-    // attribute vec3 aColor;
-    // varying vec3 fragColor;
+    attribute vec3 aColor;
+    varying vec3 fragColor;
     void main(){
-        // fragColor = aColor;
+        fragColor = aColor;
         gl_Position = vec4(aPosition.xy, 0.0, 1.0);
         gl_PointSize = 10.0;
     }
@@ -43,9 +47,9 @@ function main() {
     // Fragment shader
     var fragmentShaderCode = `
     precision mediump float;
-    // varying vec3 fragColor;
+    varying vec3 fragColor;
     void main() {
-        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        gl_FragColor = vec4(fragColor, 1.0);
     }
     `;
     var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
@@ -59,10 +63,13 @@ function main() {
     gl.useProgram(shaderProgram);
 
     var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
+    var aColor = gl.getAttribLocation(shaderProgram, "aColor");
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 5 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
     gl.enableVertexAttribArray(aPosition);
+    gl.enableVertexAttribArray(aColor);
 
-    gl.clearColor(0.75, 0.75, 0.8, 1.0); // Merah, Hijau, Biru, Transparansi
+    gl.clearColor(0.5, 0.6, 0.75, 1.0); // Merah, Hijau, Biru, Transparansi
     gl.clear(gl.COLOR_BUFFER_BIT);
     
     gl.drawArrays(gl.LINE_LOOP, 0, 8);
