@@ -51,9 +51,25 @@ function main() {
         -0.3, -0.4,
         -0.7, -0.4,
 
-        1.0, 1.0, 0.0,
-        0.7, 0.0, 1.0,
-        0.1, 1.0, 0.6,
+        // huruf I
+        0.05, -0.1,
+        0.45, -0.1,
+        0.45, -0.2,
+        0.05, -0.2,
+
+        0.19, -0.2,
+        0.19, -0.6,
+        0.31, -0.6,
+        0.31, -0.2,
+
+        0.05, -0.6,
+        0.45, -0.6,
+        0.45, -0.7,
+        0.05, -0.7,
+        
+        // 1.0, 1.0, 0.0,
+        // 0.7, 0.0, 1.0,
+        // 0.1, 1.0, 0.6,
 
     ];
 
@@ -98,7 +114,7 @@ function main() {
     var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
     var aColor = gl.getAttribLocation(shaderProgram, "aColor");
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
-    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 4 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
     gl.enableVertexAttribArray(aPosition);
     gl.enableVertexAttribArray(aColor);
 
@@ -113,5 +129,9 @@ function main() {
     gl.drawArrays(gl.TRIANGLE_FAN, 27, 4);
     gl.drawArrays(gl.TRIANGLE_FAN, 31, 4);
     gl.drawArrays(gl.TRIANGLE_FAN, 35, 4);
+
+    gl.drawArrays(gl.TRIANGLE_FAN, 39, 4)
+    gl.drawArrays(gl.TRIANGLE_FAN, 43, 4)
+    gl.drawArrays(gl.TRIANGLE_FAN, 47, 4)
 
 }
