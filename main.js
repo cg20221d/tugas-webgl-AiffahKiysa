@@ -70,15 +70,15 @@ function main() {
         1.0, 1.0, 0.0,
         0.7, 0.0, 1.0,
         0.1, 1.0, 0.6,
-
     ];
 
-    var buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    var positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
     // Vertex shader
     var vertexShaderCode = `
+    precision mediump float;
     attribute vec2 aPosition;
     attribute vec3 aColor;
     varying vec3 fragColor;
@@ -112,10 +112,11 @@ function main() {
     gl.useProgram(shaderProgram);
 
     var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
-    var aColor = gl.getAttribLocation(shaderProgram, "aColor");
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
-    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 4 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
     gl.enableVertexAttribArray(aPosition);
+
+    var aColor = gl.getAttribLocation(shaderProgram, "aColor");
+    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 4 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
     gl.enableVertexAttribArray(aColor);
 
     gl.clearColor(0.2, 0.2, 0.25, 1.0); // Merah, Hijau, Biru, Transparansi
