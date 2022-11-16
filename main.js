@@ -4,58 +4,87 @@ function main() {
 
     var vertices = [
         // angka 0 depan
-        -1.8, 1.0, 3,   1, 0, 0,    // 0
-        -0.7, 1.0, 3,   0, 0, 1,    // 1
-        -1.6, 0.8, 3,   1, 0, 0,    // 2
-        -0.9, 0.8, 3,   0, 1, 0,    // 3
-        -0.7, -0.4, 3,   1, 0, 0,    // 4
-        -0.9, -0.2, 3,  1, 0, 0,    // 5
-        -1.8, -0.4, 3,  0, 0, 0,    // 6
-        -1.6, -0.2, 3,  0, 0, 1,    // 7
+        -3, 1.0, 3,   1, 0, 0,    // 0
+        -1.8, 1.0, 3,   0, 0, 1,    // 1
+        -2.8, 0.8, 3,   1, 0, 0,    // 2
+        -2.1, 0.8, 3,   0, 1, 0,    // 3
+        -1.9, -0.4, 3,   1, 0, 0,    // 4
+        -2.1, -0.2, 3,  1, 0, 0,    // 5
+        -3, -0.4, 3,  0, 0, 0,    // 6
+        -2.8, -0.2, 3,  0, 0, 1,    // 7
 
         // angka 0 samping
-        -0.7, 1.0, 2.5,   0, 0, 1,    // 8
-        -0.7, -0.4, 2.5,   0, 1, 0,    // 9
-        -1.8, -0.4, 2.5,  0, 0, 0,    // 10
-        -1.8, 1.0, 2.5,   1, 0, 0,    // 11
+        -1.9, 1.0, 2.5,   0, 0, 1,    // 8
+        -1.9, -0.4, 2.5,   0, 1, 0,    // 9
+        -3, -0.4, 2.5,  0, 0, 0,    // 10
+        -3, 1.0, 2.5,   1, 0, 0,    // 11
 
         // angka 2 depan
-        1.0, -0.4, 3,   1, 0, 0,    // 12
-        1.8, -0.4, 3,   1, 0, 1,    // 13
-        1.8, -0.2, 3,    0, 0, 1,    // 14
-        1.0, -0.2, 3,   1, 0, 0,    // 15
-        1.0, 0.2, 3,    0, 0, 0,    // 16
-        1.2, -0.2, 3,   1, 0, 0,    // 17
-        1.2, 0.2, 3,    1, 1, 0,    // 18
-        1.8, 0.2, 3,    0, 1, 0,    // 19
-        1.8, 0.4, 3,    1, 0, 0,    // 20
-        1.0, 0.4, 3,    0, 0, 0,    // 21
-        1.6, 0.4, 3,    1, 0, 1,    // 22
-        1.6, 0.8, 3,    1, 0, 0,    // 23
-        1.8, 0.8, 3,    0, 0, 1,    // 24
-        1.8, 1.0, 3,    1, 0, 0,    // 25
-        1.0, 1.0, 3,    1, 0, 0,    // 26
-        1.0, 0.8, 3,    0, 1, 0,    // 27
+        -0.5, -0.4, 3,   1, 0, 0,    // 12
+        0.3, -0.4, 3,   1, 0, 1,    // 13
+        0.3, -0.2, 3,    0, 0, 1,    // 14
+        -0.5, -0.2, 3,   1, 0, 0,    // 15
+        -0.5, 0.2, 3,    0, 0, 0,    // 16
+        -0.3, -0.2, 3,   1, 0, 0,    // 17
+        -0.3, 0.2, 3,    1, 1, 0,    // 18
+        0.3, 0.2, 3,    0, 1, 0,    // 19
+        0.3, 0.4, 3,    1, 0, 0,    // 20
+        -0.5, 0.4, 3,    0, 0, 0,    // 21
+        0.1, 0.4, 3,    1, 0, 1,    // 22
+        0.1, 0.8, 3,    1, 0, 0,    // 23
+        0.3, 0.8, 3,    0, 0, 1,    // 24
+        0.3, 1.0, 3,    1, 0, 0,    // 25
+        -0.5, 1.0, 3,    1, 0, 0,    // 26
+        -0.5, 0.8, 3,    0, 1, 0,    // 27
 
         // angka 2 samping
-        1.8, -0.4, 2.5,   1, 0, 0,    // 28
-        1.8, -0.2, 2.5,    0, 0, 1,    // 29
+        0.3, -0.4, 2.5,   1, 0, 0,    // 28
+        0.3, -0.2, 2.5,    0, 0, 1,    // 29
 
-        1.2, -0.2, 2.5,   0, 0, 0,    // 30
-        1.2, 0.2, 2.5,    1, 1, 0,    // 31
+        -0.3, -0.2, 2.5,   0, 0, 0,    // 30
+        -0.3, 0.2, 2.5,    1, 1, 0,    // 31
 
-        1.8, 0.2, 2.5,    1, 0, 0,    // 32
-        1.8, 1.0, 2.5,    1, 0, 0,    // 33
+        0.3, 0.2, 2.5,    1, 0, 0,    // 32
+        0.3, 1.0, 2.5,    1, 0, 0,    // 33
 
-        1.0, -0.4, 2.5,   1, 0, 0,    // 34
-        1.0, 0.4, 2.5,   1, 0, 0,    // 35
+        -0.5, -0.4, 2.5,   0, 0, 0,    // 34
+        -0.5, 0.4, 2.5,   1, 0, 0,    // 35
 
-        1.6, 0.4, 2.5,    1, 1, 0,    // 36
-        1.6, 0.8, 2.5,    0, 0, 0,    // 37
+        0.1, 0.4, 2.5,    1, 1, 0,    // 36
+        0.1, 0.8, 2.5,    0, 0, 0,    // 37
 
-        1.0, 0.8, 2.5,    1, 0, 0,    // 38
-        1.0, 1.0, 2.5,    1, 0, 1,    // 39
+        -0.5, 0.8, 2.5,    1, 0, 0,    // 38
+        -0.5, 1.0, 2.5,    1, 0, 1,    // 39
 
+        // huruf F
+        0.9, 1.0, 3.0,    1, 0, 0,    // 40
+        1.2, 1.0, 3.0,    0, 1, 0,    // 41
+        1.2, -0.4, 3.0,   1, 0, 0,    // 42
+        0.9, -0.4, 3.0,   0, 0, 0,    // 43
+        1.9, 1.0, 3.0,      1, 0, 1,    // 44
+        1.9, 0.7, 3.0,      1, 0, 0,    // 45
+        1.2, 0.7, 3.0,      1, 0, 0,    // 46
+        1.2, 0.47, 3.0,      1, 0, 0,    // 47
+        1.8, 0.47, 3.0,      1, 1, 0,    // 48
+        1.8, 0.27, 3.0,      1, 0, 0,    // 49
+        1.2, 0.27, 3.0,      1, 0, 1,    // 50
+
+        // huruf F samping
+        0.9, 1.0, 2.5,    1, 0, 0,    // 51
+        0.9, -0.4, 2.5,   0, 1, 0,    // 52
+
+        1.2, -0.4, 2.5,   1, 0, 0,    // 53
+        1.2, 1.0, 2.5,   1, 0, 1,    // 54
+
+        1.9, 1.0, 2.5,      1, 0, 0,    // 55
+        1.9, 0.7, 2.5,      1, 0, 0,    // 56
+
+        1.8, 0.47, 2.5,      1, 0, 0,    // 57
+        1.8, 0.27, 2.5,      1, 1, 0,    // 58
+
+        1.2, 0.7, 2.5,      1, 0, 0,    // 59
+        1.2, 0.47, 2.5,      1, 0, 1,    // 60
+        1.2, 0.27, 2.5,      1, 0, 0,    // 61
     ];
 
 
@@ -100,10 +129,9 @@ function main() {
     
     // Variabel lokal
     var theta = 0.0;
+    var thetaPoints = 0.0;
     var horizontal = 0.0202;
-    var vertical = 0.0;
     var horizontalPoints = 0.0;
-    var verticalPoints = 0.0;
     var scale = 0.05;
     var scalePoints = 0.5;
 
@@ -134,19 +162,15 @@ function main() {
 
     function onKeyUp(event){
         if (event.keyCode == 32) freeze = false;
-        if (event.keyCode == 87) vertical = 0.0;
-        if (event.keyCode == 83) vertical = 0.0;
-        if (event.keyCode == 68) horizontal = 0.0;
-        if (event.keyCode == 65) horizontal = 0.0;
+        if (event.keyCode == 39) theta = 0.0;
+        if (event.keyCode == 37) theta = 0.0;
     }
     document.addEventListener("keyup", onKeyUp, false);
 
     function onKeyDown(event){
         if (event.keyCode == 32) freeze = true;
-        if (event.keyCode == 87) vertical = -0.01;
-        if (event.keyCode == 83) vertical = 0.01;
-        if (event.keyCode == 68) horizontal = 0.01;
-        if (event.keyCode == 65) horizontal = -0.01;
+        if (event.keyCode == 39) theta = 0.05;
+        if (event.keyCode == 37) theta = -0.05;
     }
     document.addEventListener("keydown", onKeyDown, false);
 
@@ -157,6 +181,7 @@ function main() {
 
         funNumber0()
         funNumber2()
+        funHurufF()
 
         requestAnimationFrame(render);
     }
@@ -191,7 +216,6 @@ function main() {
         gl.enableVertexAttribArray(aPosition);
         gl.enableVertexAttribArray(aColor);
 
-        theta += 0.1;
         horizontalPoints += horizontal;
         if (horizontalPoints >= 0.5 || horizontalPoints <= 0.0) {
             horizontal *= -1;
@@ -267,6 +291,62 @@ function main() {
             model, model, [scalePoints, scalePoints, scalePoints]
         );
     
+        gl.uniformMatrix4fv(uModel, false, model);
+        gl.uniformMatrix4fv(uModel, false, model);
+        gl.uniformMatrix4fv(uView, false, view);
+        gl.uniformMatrix4fv(uProjection, false, perspective);
+        gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+    }
+
+    function funHurufF(){
+        var buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+        var indices = [
+            //depan
+            40, 41, 42,     40, 42, 43,
+            41, 44, 45,     41, 45, 46,
+            47, 48, 49,     47, 49, 50,
+
+            // samping
+            40, 51, 52,     40, 43, 52,
+            42, 41, 53,     41, 53, 54,
+
+            44, 45, 55,     45, 55, 56,
+            48, 49, 57,     49, 57, 58,
+
+            46, 47, 60,     46, 59, 60,
+
+            40, 44, 51,     44, 51, 55,
+            45, 46, 56,     46, 56, 59,
+
+            47, 48, 57,     47, 57, 60,
+            49, 50, 58,     50, 58, 61,
+            42, 43, 52,     42, 52, 53,
+
+            51, 52, 53,     51, 53, 54,
+            54, 55, 56,     54, 56, 59,
+            57, 58, 60,     58, 60, 61,
+        ]
+
+        var indexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+
+        var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
+        var aColor = gl.getAttribLocation(shaderProgram, "aColor");
+        gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 6 * Float32Array.BYTES_PER_ELEMENT, 0);
+        gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 6 * Float32Array.BYTES_PER_ELEMENT, 3 * Float32Array.BYTES_PER_ELEMENT);
+        gl.enableVertexAttribArray(aPosition);
+        gl.enableVertexAttribArray(aColor);
+
+        thetaPoints += theta
+        var model = glMatrix.mat4.create(); 
+        glMatrix.mat4.rotateY(
+            model, model, thetaPoints
+        );
+        
         gl.uniformMatrix4fv(uModel, false, model);
         gl.uniformMatrix4fv(uModel, false, model);
         gl.uniformMatrix4fv(uView, false, view);
