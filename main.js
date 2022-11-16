@@ -85,6 +85,33 @@ function main() {
         1.2, 0.7, 2.5,      1, 0, 0,    // 59
         1.2, 0.47, 2.5,      1, 0, 1,    // 60
         1.2, 0.27, 2.5,      1, 0, 0,    // 61
+
+        // huruf I depan
+        2.1, 1.0, 3.0,      1, 0, 0,    // 62
+        3.2, 1.0, 3.0,      0, 0, 0,    // 63
+        3.2, 0.75, 3.0,      1, 1, 0,    // 64
+        2.1, 0.75, 3.0,      1, 0, 0,    // 65
+        2.5, 0.75, 3.0,      0, 0, 1,    // 66
+        2.8, 0.75, 3.0,      1, 0, 0,    // 67
+        2.8, -0.15, 3.0,     1, 1, 0,    // 68
+        2.5, -0.15, 3.0,     0, 0, 0,    // 69
+        2.1, -0.15, 3.0,     0, 0, 1,    // 70
+        2.1, -0.4, 3.0,     0, 1, 0,    // 71
+        3.2, -0.4, 3.0,     1, 0, 0,    // 72
+        3.2, -0.15, 3.0,     0, 0, 1,    // 73
+
+        2.1, 1.0, 2.5,      1, 0, 0,    // 74
+        2.1, 0.75, 2.5,      1, 0, 0,    // 75
+        3.2, 1.0, 2.5,      0, 0, 0,    // 76
+        3.2, 0.75, 2.5,      1, 1, 0,    // 77
+        2.5, 0.75, 2.5,      1, 0, 0,    // 78
+        2.5, -0.15, 2.5,     0, 0, 1,    // 79
+        2.8, 0.75, 2.5,      1, 0, 1,    // 80
+        2.8, -0.15, 2.5,     1, 0, 0,    // 81
+        2.1, -0.15, 2.5,     0, 0, 0,    // 82
+        2.1, -0.4, 2.5,     1, 0, 0,    // 83
+        3.2, -0.15, 2.5,     1, 0, 0,    // 84
+        3.2, -0.4, 2.5,     0, 1, 0,    // 85
     ];
 
 
@@ -129,7 +156,9 @@ function main() {
     
     // Variabel lokal
     var theta = 0.0;
+    var delta = 0.0;
     var thetaPoints = 0.0;
+    var deltaPoints = 0.0;
     var horizontal = 0.0202;
     var horizontalPoints = 0.0;
     var scale = 0.05;
@@ -164,6 +193,8 @@ function main() {
         if (event.keyCode == 32) freeze = false;
         if (event.keyCode == 39) theta = 0.0;
         if (event.keyCode == 37) theta = 0.0;
+        if (event.keyCode == 38) delta = 0.0;
+        if (event.keyCode == 40) delta = 0.0;
     }
     document.addEventListener("keyup", onKeyUp, false);
 
@@ -171,6 +202,8 @@ function main() {
         if (event.keyCode == 32) freeze = true;
         if (event.keyCode == 39) theta = 0.05;
         if (event.keyCode == 37) theta = -0.05;
+        if (event.keyCode == 38) delta = 0.05;
+        if (event.keyCode == 40) delta = -0.05;
     }
     document.addEventListener("keydown", onKeyDown, false);
 
@@ -182,6 +215,7 @@ function main() {
         funNumber0()
         funNumber2()
         funHurufF()
+        funHurufI()
 
         requestAnimationFrame(render);
     }
@@ -345,6 +379,59 @@ function main() {
         var model = glMatrix.mat4.create(); 
         glMatrix.mat4.rotateY(
             model, model, thetaPoints
+        );
+        
+        gl.uniformMatrix4fv(uModel, false, model);
+        gl.uniformMatrix4fv(uModel, false, model);
+        gl.uniformMatrix4fv(uView, false, view);
+        gl.uniformMatrix4fv(uProjection, false, perspective);
+        gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+    }
+
+    function funHurufI(){
+        var buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+        var indices = [
+            //depan
+            62, 63, 64,     62, 64, 65,
+            66, 67, 68,     66, 68, 69,
+            70, 71, 72,     70, 72, 73,
+
+            // samping
+            62, 65, 74,     65, 74, 75,
+            63, 64, 76,     64, 76, 77,
+            66, 69, 78,     69, 78, 79,
+            67, 68, 80,     68, 80, 81,
+            70, 71, 82,     71, 82, 83,
+            72, 73, 84,     72, 84, 85,
+
+            62, 63, 74,     63, 74, 76,
+            64, 65, 75,     64, 75, 77,
+            70, 73, 82,     73, 82, 84,
+            71, 72, 83,     72, 83, 85,
+
+            74, 75, 76,     75, 76, 77,
+            78, 79, 80,     79, 80, 81,
+            82, 83, 84,     83, 84, 85
+        ]
+
+        var indexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+
+        var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
+        var aColor = gl.getAttribLocation(shaderProgram, "aColor");
+        gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 6 * Float32Array.BYTES_PER_ELEMENT, 0);
+        gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 6 * Float32Array.BYTES_PER_ELEMENT, 3 * Float32Array.BYTES_PER_ELEMENT);
+        gl.enableVertexAttribArray(aPosition);
+        gl.enableVertexAttribArray(aColor);
+
+        deltaPoints += delta
+        var model = glMatrix.mat4.create(); 
+        glMatrix.mat4.rotateX(
+            model, model, deltaPoints
         );
         
         gl.uniformMatrix4fv(uModel, false, model);
