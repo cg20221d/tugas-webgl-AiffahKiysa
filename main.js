@@ -3,86 +3,40 @@ function main() {
     var gl = kanvas.getContext("webgl");
 
     var vertices = [
-        // // angka 0 depan
-        // -3, 1.0, 3,   1, 0, 0,    // 0
-        // -1.8, 1.0, 3,   0, 0, 1,    // 1
-        // -2.8, 0.8, 3,   1, 0, 0,    // 2
-        // -2.1, 0.8, 3,   0, 1, 0,    // 3
-        // -1.9, -0.4, 3,   1, 0, 0,    // 4
-        // -2.1, -0.2, 3,  1, 0, 0,    // 5
-        // -3, -0.4, 3,  0, 0, 0,    // 6
-        // -2.8, -0.2, 3,  0, 0, 1,    // 7
-
-        // // angka 0 samping
-        // -1.9, 1.0, 2.5,   0, 0, 1,    // 8
-        // -1.9, -0.4, 2.5,   0, 1, 0,    // 9
-        // -3, -0.4, 2.5,  0, 0, 0,    // 10
-        // -3, 1.0, 2.5,   1, 0, 0,    // 11
         -1.5,-0.4,3,    1,0,0,     0, 0, -1,   // 0
-        -0.7,-0.4,3,1,0,1,     0, 0, -1,   // 1
-        -0.7,-0.2,3,0,0,1,     0, 0, -1,   // 2
-        -1.5,-0.2,3,1,0,0,     0, 0, -1,   // 3
-        -1.5,0.2,3,0,0,0,      0, 0, 1,  // 4
-        -1.3,-0.2,3,1,0,0,     0, 0, 1,   // 5
-        -1.3,0.2,3,1,1,0,      0, 0, 1,  // 6
-        -0.7,0.2,3,0,1,0,      0, 0, 1,  // 7
-        -0.7,0.4,3,1,0,0,     -1, 0, 0,   // 8
-        -1.5,0.4,3,0,0,0,     -1, 0, 0,   // 9
-        -0.9,0.4,3,1,0,1,     -1, 0, 0,   // 10
-        -0.9,0.8,3,1,0,0,     -1, 0, 0,   // 11
-        -0.7,0.8,3,0,0,1,     1, 0, 0,    // 12
-        -0.7,1,3,1,0,0,       1, 0, 0,  // 13
-        -1.5,1,3,1,0,0,      1, 0, 0,   // 14
-        -1.5,0.8,3,0,1,0,      1, 0, 0,   // 15
+        -0.7,-0.4,3,    1,0,0,     0, 0, -1,   // 1
+        -0.7,-0.2,3,    1,0,0,     0, 0, -1,   // 2
+        -1.5,-0.2,3,    1,0,0,     0, 0, -1,   // 3
+        -1.5,0.2,3,     1,0,0,      0, 0, 1,  // 4
+        -1.3,-0.2,3,    1,0,0,     0, 0, 1,   // 5
+        -1.3,0.2,3,     1,0,0,      0, 0, 1,  // 6
+        -0.7,0.2,3,     1,0,0,      0, 0, 1,  // 7
+        -0.7,0.4,3,     1,0,0,     -1, 0, 0,   // 8
+        -1.5,0.4,3,     1,0,0,     -1, 0, 0,   // 9
+        -0.9,0.4,3,     1,0,0,     -1, 0, 0,   // 10
+        -0.9,0.8,3,     1,0,0,     -1, 0, 0,   // 11
+        -0.7,0.8,3,     1,0,0,     1, 0, 0,    // 12
+        -0.7,1,3,       1,0,0,       1, 0, 0,  // 13
+        -1.5,1,3,       1,0,0,      1, 0, 0,   // 14
+        -1.5,0.8,3,     1,0,0,      1, 0, 0,   // 15
 
-        -0.7,-0.4,2.5,1,0,0,    0, -1, 0,  // 16
-        -0.7,-0.2,2.5,0,0,1,   0, -1, 0,   // 17
+        -0.7,-0.4,2.5,  1,0,0,    0, -1, 0,  // 16
+        -0.7,-0.2,2.5,  1,0,0,   0, -1, 0,   // 17
 
-        -1.3,-0.2,2.5,0,0,0,    0, -1, 0,  // 18
-        -1.3,0.2,2.5,1,1,0,     0, -1, 0, // 19
+        -1.3,-0.2,2.5,  1,0,0,    0, -1, 0,  // 18
+        -1.3,0.2,2.5,   1,0,0,     0, -1, 0, // 19
 
-        -0.7,0.2,2.5,1,0,0,    0, 1, 0,    // 20
-        -0.7,1,2.5,1,0,0,      0, 1, 0,  // 21
+        -0.7,0.2,2.5,   1,0,0,    0, 1, 0,    // 20
+        -0.7,1,2.5,     1,0,0,      0, 1, 0,  // 21
 
-        -1.5,-0.4,2.5,0,0,0,     0, 1, 0,   // 22
-        -1.5,0.4,2.5,1,0,0,     0, 1, 0,   // 23
+        -1.5,-0.4,2.5,  1,0,0,     0, 1, 0,   // 22
+        -1.5,0.4,2.5,   1,0,0,     0, 1, 0,   // 23
 
-        -0.9,0.4,2.5,1,1,0,      0, 1, 0,  // 24
-        -0.9,0.8,2.5,0,0,0,      0, 1, 0,  // 25
+        -0.9,0.4,2.5,   1,0,0,      0, 1, 0,  // 24
+        -0.9,0.8,2.5,   1,0,0,      0, 1, 0,  // 25
 
-        -1.5,0.8,2.5,1,0,0,     0, 1, 0,   // 26
-        -1.5,1,2.5,1,0,1,     0, 1, 0,   // 27
-
-
-        // // huruf F
-        // 0.9, 1.0, 3.0,    1, 0, 0,    // 40
-        // 1.2, 1.0, 3.0,    0, 1, 0,    // 41
-        // 1.2, -0.4, 3.0,   1, 0, 0,    // 42
-        // 0.9, -0.4, 3.0,   0, 0, 0,    // 43
-        // 1.9, 1.0, 3.0,      1, 0, 1,    // 44
-        // 1.9, 0.7, 3.0,      1, 0, 0,    // 45
-        // 1.2, 0.7, 3.0,      1, 0, 0,    // 46
-        // 1.2, 0.47, 3.0,      1, 0, 0,    // 47
-        // 1.8, 0.47, 3.0,      1, 1, 0,    // 48
-        // 1.8, 0.27, 3.0,      1, 0, 0,    // 49
-        // 1.2, 0.27, 3.0,      1, 0, 1,    // 50
-
-        // // huruf F samping
-        // 0.9, 1.0, 2.5,    1, 0, 0,    // 51
-        // 0.9, -0.4, 2.5,   0, 1, 0,    // 52
-
-        // 1.2, -0.4, 2.5,   1, 0, 0,    // 53
-        // 1.2, 1.0, 2.5,   1, 0, 1,    // 54
-
-        // 1.9, 1.0, 2.5,      1, 0, 0,    // 55
-        // 1.9, 0.7, 2.5,      1, 0, 0,    // 56
-
-        // 1.8, 0.47, 2.5,      1, 0, 0,    // 57
-        // 1.8, 0.27, 2.5,      1, 1, 0,    // 58
-
-        // 1.2, 0.7, 2.5,      1, 0, 0,    // 59
-        // 1.2, 0.47, 2.5,      1, 0, 1,    // 60
-        // 1.2, 0.27, 2.5,      1, 0, 0,    // 61
+        -1.5,0.8,2.5,   1,0,0,     0, 1, 0,   // 26
+        -1.5,1,2.5,     1,0,0,     0, 1, 0,   // 27
 
         // Face A       // Red
         -1, -1, -1,     1, 0, 0,    0, 0, -1,    // Index:  28    
@@ -115,108 +69,34 @@ function main() {
          1,  1,  1,     1, 1, 1,    0, 1, 0,    // Index: 50
          1,  1, -1,     1, 1, 1,    0, 1, 0,     // Index: 51
 
-         0.6 , 1.0, 3.0, 1, 0, 0, 0, 0, -1, // 62 52
-         1.7 , 1.0, 3.0, 0, 0, 0, 0, 0, -1, // 63 53
-         1.7 , 0.75, 3.0, 1, 1, 0, 0, 0, -1, // 64 54
-         0.6 , 0.75, 3.0, 1, 0, 0, 0, 0, -1, // 65 55
-         1 , 0.75, 3.0, 0, 0, 1, 0, 0, 1, // 66 56
-         1.3 , 0.75, 3.0, 1, 0, 0, 0, 0, 1, // 67 57
-         1.3 , -0.15, 3.0, 1, 1, 0, 0, 0, 1, // 68 58
-         1 , -0.15, 3.0, 0, 0, 0, 0, 0, 1, // 69 59
-         0.6 , -0.15, 3.0, 0, 0, 1, -1, 0, 0, // 70 60
-         0.6 , -0.4, 3.0, 0, 1, 0, -1, 0, 0, // 71 61
-         1.7 , -0.4, 3.0, 1, 0, 0, -1, 0, 0, // 72 62
-         1.7 , -0.15, 3.0, 0, 0, 1, 1, 0, 0, // 73 63
+         0.6 , 1.0, 3.0,     1, 0, 0,   0, 0, -1, // 62 52
+         1.7 , 1.0, 3.0,     1, 0, 0,    0, 0, -1, // 63 53
+         1.7 , 0.75, 3.0,    1, 0, 0,    0, 0, -1, // 64 54
+         0.6 , 0.75, 3.0,    1, 0, 0,   0, 0, -1, // 65 55
+         1 , 0.75, 3.0, 0,   1, 0, 0,    0, 1, // 66 56
+         1.3 , 0.75, 3.0,    1, 0, 0,   0, 0, 1, // 67 57
+         1.3 , -0.15, 3.0,  1, 0, 0,    0, 0, 1, // 68 58
+         1 , -0.15, 3.0,     1, 0, 0,   0, 0, 1, // 69 59
+         0.6 , -0.15, 3.0,   1, 0, 0,    -1, 0, 0, // 70 60
+         0.6 , -0.4, 3.0,   1, 0, 0,     -1, 0, 0, // 71 61
+         1.7 , -0.4, 3.0,   1, 0, 0,     -1, 0, 0, // 72 62
+         1.7 , -0.15, 3.0,   1, 0, 0,    1, 0, 0, // 73 63
               
-         0.6 , 1.0, 2.5, 1, 0, 0, 1, 0, 0, // 74 64
-         0.6 , 0.75, 2.5, 1, 0, 0, 1, 0, 0, // 75 65
-         1.7 , 1.0, 2.5, 0, 0, 0, 1, 0, 0, // 76 66
-         1.7 , 0.75, 2.5, 1, 1, 0, 0, -1, 0, // 77 67
-         1 , 0.75, 2.5, 1, 0, 0, 0, -1, 0, // 78 68
-         1 , -0.15, 2.5, 0, 0, 1, 0, -1, 0, // 79 69
-         1.3 , 0.75, 2.5, 1, 0, 1, 0, -1, 0, // 80 70
-         1.3 , -0.15, 2.5, 1, 0, 0, 0, 1, 0, // 81 71
-         0.6 , -0.15, 2.5, 0, 0, 0, 0, 1, 0, // 82 72
-         0.6 , -0.4, 2.5, 1, 0, 0, 0, 1, 0, // 83 73
-         1.7 , -0.15, 2.5, 1, 0, 0, 0, 1, 0, // 84 74
-         1.7 , -0.4, 2.5, 0, 1, 0, 0, 1, 0, // 85 75
+         0.6 , 1.0, 2.5,     1, 0, 0,    1, 0, 0, // 74 64
+         0.6 , 0.75, 2.5,    1, 0, 0,    1, 0, 0, // 75 65
+         1.7 , 1.0, 2.5,     1, 0, 0,   1, 0, 0, // 76 66
+         1.7 , 0.75, 2.5,    1, 0, 0,    0, -1, 0, // 77 67
+         1 , 0.75, 2.5,     1, 0, 0,     0, -1, 0, // 78 68
+         1 , -0.15, 2.5,     1, 0, 0,    0, -1, 0, // 79 69
+         1.3 , 0.75, 2.5,    1, 0, 0,   0, -1, 0, // 80 70
+         1.3 , -0.15, 2.5,   1, 0, 0,    0, 1, 0, // 81 71
+         0.6 , -0.15, 2.5,   1, 0, 0,   0, 1, 0, // 82 72
+         0.6 , -0.4, 2.5,   1, 0, 0,     0, 1, 0, // 83 73
+         1.7 , -0.15, 2.5,  1, 0, 0,     0, 1, 0, // 84 74
+         1.7 , -0.4, 2.5,   1, 0, 0,     0, 1, 0, // 85 75
          
     ];
 
-
-    // Vertex shader
-    var vertexShaderCode = `
-    attribute vec3 aPosition;
-    attribute vec3 aColor;
-    attribute vec3 aNormal;
-    varying vec3 fragColor;
-    varying vec3 vNormal;
-    varying vec3 vPosition;
-    uniform mat4 uModel;
-    uniform mat4 uView;
-    uniform mat4 uProjection;
-    void main(){
-        fragColor = aColor;
-        vNormal = aNormal;
-        gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
-        vPosition = (uModel * vec4(aPosition, 1.0)).xyz;
-    }
-    `;
-
-    var vertexShaderObject = gl.createShader(gl.VERTEX_SHADER);
-    gl.shaderSource(vertexShaderObject, vertexShaderCode);
-    gl.compileShader(vertexShaderObject); 
-
-    // Fragment shader
-    var fragmentShaderCode = `
-    precision mediump float;
-    varying vec3 fragColor;
-    uniform vec3 uLightConstant;      // merepresentasikan warna sumber cahaya
-    uniform float uAmbientIntensity;    // merepresentasikan intensitas cahaya sekitar
-    varying vec3 vNormal;
-    varying vec3 vPosition;             // titik fragmen
-    uniform vec3 uLightPosition;        // titik lokasi sumber cahaya
-    uniform vec3 uViewerPosition;       // titik lokasi mata atau kamera pengamat
-    // uniform vec3 uLightDirection;       // vektor arah datang sumber cahaya
-    uniform mat3 uNormalModel;
-    void main() {
-        vec3 ambient = uLightConstant * uAmbientIntensity;
-        vec3 lightRay = vPosition - uLightPosition;
-        // vec3 normalizedLight = normalize(-uLightDirection);  // diffuse directional light
-        vec3 normalizedLight = normalize(-lightRay);            // diffuse point light
-        vec3 normalizedNormal = normalize(uNormalModel * vNormal);
-        float cosTheta = dot(normalizedNormal, normalizedLight);
-        vec3 diffuse = vec3(0.0, 0.0, 0.0);
-        if (cosTheta > 0.0) {
-            float diffuseIntensity = cosTheta;
-            diffuse = uLightConstant * diffuseIntensity;
-        }
-        vec3 normalizedReflector = normalize(reflect(lightRay, normalizedNormal));
-        vec3 normalizedViewer = normalize(uViewerPosition - vPosition);
-        float cosPhi = dot(normalizedReflector, normalizedViewer);
-        vec3 specular = vec3(0.0, 0.0, 0.0);
-        if (cosPhi > 0.0) {
-            float shininessConstant = 100.0;    // batas minimum spesifikasi spekular untuk materi logam
-            float specularIntensity = pow(cosPhi, shininessConstant);
-            specular = uLightConstant * specularIntensity;
-        }
-        vec3 phong = ambient + diffuse + specular;
-        gl_FragColor = vec4(phong * fragColor, 1.0);
-    }
-    `;
-    var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
-    gl.compileShader(fragmentShaderObject); 
-
-    var shaderProgram = gl.createProgram(); // wadah dari executable (.exe)
-    gl.attachShader(shaderProgram, vertexShaderObject);
-    gl.attachShader(shaderProgram, fragmentShaderObject);
-    gl.linkProgram(shaderProgram);
-    gl.useProgram(shaderProgram);
-
-    // mengajari GPU bagaimana cara mengoleksi nilai posisi dari ARRAY_BUFFER
-    // untuk setiap vertex yang sedang diproses
-    
     // Variabel lokal
     var theta = 0.0;
     var delta = 0.0;
@@ -228,26 +108,6 @@ function main() {
     var depthPoints = 0.0;
     var scale = 0.05;
     var scalePoints = 0.5;
-
-    // Variabel pointer ke GLSL
-    var uModel = gl.getUniformLocation(shaderProgram, "uModel");
-    // View
-    // var cameraX = 0.0;
-    // var cameraZ = 5.0;
-    var camera = [0.0, 0.0, 5.0];
-    var uView = gl.getUniformLocation(shaderProgram, "uView");
-    var view = glMatrix.mat4.create();
-    glMatrix.mat4.lookAt(
-        view,
-        camera,                    // the location of the eye or the camera
-        [camera[0], 0.0, -10],        // the point where the camera look at
-        [0.0, 1.0, 0.0]
-    );
-
-    // Projection
-    var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
-    var perspective = glMatrix.mat4.create();
-    glMatrix.mat4.perspective(perspective, glMatrix.glMatrix.toRadian(75), 1.0, 0.5, 50.0);
 
     // grafik ai nteraktif
     var freeze = false;
@@ -297,6 +157,87 @@ function main() {
     requestAnimationFrame(render);
 
     function funkubus(){
+        // Vertex shader
+        var vertexShaderCode = `
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        attribute vec3 aNormal;
+        varying vec3 fragColor;
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        uniform mat4 uModel;
+        uniform mat4 uView;
+        uniform mat4 uProjection;
+        void main(){
+            fragColor = aColor;
+            vNormal = aNormal;
+            gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+            vPosition = (uModel * vec4(aPosition, 1.0)).xyz;
+        }
+        `;
+
+        var vertexShaderObject = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(vertexShaderObject, vertexShaderCode);
+        gl.compileShader(vertexShaderObject); 
+
+        // Fragment shader
+        var fragmentShaderCode = `
+        precision mediump float;
+        varying vec3 fragColor;
+        uniform vec3 uLightConstant;      // merepresentasikan warna sumber cahaya
+        uniform float uAmbientIntensity;    // merepresentasikan intensitas cahaya sekitar
+        varying vec3 vNormal;
+        varying vec3 vPosition;             // titik fragmen
+        uniform vec3 uLightPosition;        // titik lokasi sumber cahaya
+        uniform mat3 uNormalModel;
+        void main() {
+            vec3 ambient = uLightConstant * uAmbientIntensity;
+            vec3 lightRay = vPosition - uLightPosition;
+            // vec3 normalizedLight = normalize(-uLightDirection);  // diffuse directional light
+            vec3 normalizedLight = normalize(-lightRay);            // diffuse point light
+            vec3 normalizedNormal = normalize(uNormalModel * vNormal);
+            float cosTheta = dot(normalizedNormal, normalizedLight);
+            vec3 diffuse = vec3(0.0, 0.0, 0.0);
+            if (cosTheta > 0.0) {
+                float diffuseIntensity = cosTheta;
+                diffuse = uLightConstant * diffuseIntensity;
+            }
+            vec3 phong = ambient + diffuse;
+            gl_FragColor = vec4(phong * fragColor, 1.0);
+        }
+        `;
+        var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
+        gl.compileShader(fragmentShaderObject); 
+
+        var shaderProgram = gl.createProgram(); // wadah dari executable (.exe)
+        gl.attachShader(shaderProgram, vertexShaderObject);
+        gl.attachShader(shaderProgram, fragmentShaderObject);
+        gl.linkProgram(shaderProgram);
+        gl.useProgram(shaderProgram);
+
+        // mengajari GPU bagaimana cara mengoleksi nilai posisi dari ARRAY_BUFFER
+        // untuk setiap vertex yang sedang diproses
+
+        // Variabel pointer ke GLSL
+        var uModel = gl.getUniformLocation(shaderProgram, "uModel");
+        // View
+        var cameraX = 0.0;
+        var cameraZ = 7.5;
+        var uView = gl.getUniformLocation(shaderProgram, "uView");
+        var view = glMatrix.mat4.create();
+        glMatrix.mat4.lookAt(
+            view,
+            [cameraX, 0.0, cameraZ],    // the location of the eye or the camera
+            [cameraX, 0.0, -10],        // the point where the camera look at
+            [0.0, 1.0, 0.0]
+        );
+
+        // Projection
+        var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
+        var perspective = glMatrix.mat4.create();
+        glMatrix.mat4.perspective(perspective, glMatrix.glMatrix.toRadian(75), 1.0, 0.5, 50.0);
+
         var buffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -333,7 +274,7 @@ function main() {
         gl.uniform3fv(uLightConstant, [1.0, 0.5, 1.0]);     // warna sumber cahaya : orange
         gl.uniform1f(uAmbientIntensity, 0.502);               // intensitas cahaya : 40%
         var uLightPosition= gl.getUniformLocation(shaderProgram, "uLightPosition");
-        gl.uniform3fv(uLightPosition, [2.0, 0.0, 0.0]);
+        gl.uniform3fv(uLightPosition, [0.0, 0.0, 3.0]);
         var uNormalModel = gl.getUniformLocation(shaderProgram, "uNormalModel");
 
 
@@ -357,6 +298,99 @@ function main() {
     }
 
     function funNumber2(){
+        // Vertex shader
+        var vertexShaderCode = `
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        attribute vec3 aNormal;
+        varying vec3 fragColor;
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        uniform mat4 uModel;
+        uniform mat4 uView;
+        uniform mat4 uProjection;
+        void main(){
+            fragColor = aColor;
+            vNormal = aNormal;
+            gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+            vPosition = (uModel * vec4(aPosition, 1.0)).xyz;
+        }
+        `;
+
+        var vertexShaderObject = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(vertexShaderObject, vertexShaderCode);
+        gl.compileShader(vertexShaderObject); 
+
+        // Fragment shader
+        var fragmentShaderCode = `
+        precision mediump float;
+        varying vec3 fragColor;
+        uniform vec3 uLightConstant;      // merepresentasikan warna sumber cahaya
+        uniform float uAmbientIntensity;    // merepresentasikan intensitas cahaya sekitar
+        varying vec3 vNormal;
+        varying vec3 vPosition;             // titik fragmen
+        uniform vec3 uLightPosition;        // titik lokasi sumber cahaya
+        uniform vec3 uViewerPosition;       // titik lokasi mata atau kamera pengamat
+        // uniform vec3 uLightDirection;       // vektor arah datang sumber cahaya
+        uniform mat3 uNormalModel;
+        void main() {
+            vec3 ambient = uLightConstant * uAmbientIntensity;
+            vec3 lightRay = vPosition - uLightPosition;
+            // vec3 normalizedLight = normalize(-uLightDirection);  // diffuse directional light
+            vec3 normalizedLight = normalize(-lightRay);            // diffuse point light
+            vec3 normalizedNormal = normalize(uNormalModel * vNormal);
+            float cosTheta = dot(normalizedNormal, normalizedLight);
+            vec3 diffuse = vec3(0.0, 0.0, 0.0);
+            if (cosTheta > 0.0) {
+                float diffuseIntensity = cosTheta;
+                diffuse = uLightConstant * diffuseIntensity;
+            }
+            vec3 normalizedReflector = normalize(reflect(lightRay, normalizedNormal));
+            vec3 normalizedViewer = normalize(uViewerPosition - vPosition);
+            float cosPhi = dot(normalizedReflector, normalizedViewer);
+            vec3 specular = vec3(0.0, 0.0, 0.0);
+            if (cosPhi > 0.0) {
+                float shininessConstant = 5.0;    // batas minimum spesifikasi spekular untuk materi plastik
+                float specularIntensity = pow(cosPhi, shininessConstant);
+                specular = uLightConstant * specularIntensity;
+            }
+            vec3 phong = ambient + diffuse + specular;
+            gl_FragColor = vec4(phong * fragColor, 1.0);
+        }
+        `;
+        var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
+        gl.compileShader(fragmentShaderObject); 
+
+        var shaderProgram = gl.createProgram(); // wadah dari executable (.exe)
+        gl.attachShader(shaderProgram, vertexShaderObject);
+        gl.attachShader(shaderProgram, fragmentShaderObject);
+        gl.linkProgram(shaderProgram);
+        gl.useProgram(shaderProgram);
+
+        // mengajari GPU bagaimana cara mengoleksi nilai posisi dari ARRAY_BUFFER
+        // untuk setiap vertex yang sedang diproses
+
+        // Variabel pointer ke GLSL
+        var uModel = gl.getUniformLocation(shaderProgram, "uModel");
+        // View
+        // var cameraX = 0.0;
+        // var cameraZ = 5.0;
+        var camera = [0.0, 0.0, 5.0];
+        var uView = gl.getUniformLocation(shaderProgram, "uView");
+        var view = glMatrix.mat4.create();
+        glMatrix.mat4.lookAt(
+            view,
+            camera,                    // the location of the eye or the camera
+            [camera[0], 0.0, -10],        // the point where the camera look at
+            [0.0, 1.0, 0.0]
+        );
+
+        // Projection
+        var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
+        var perspective = glMatrix.mat4.create();
+        glMatrix.mat4.perspective(perspective, glMatrix.glMatrix.toRadian(75), 1.0, 0.5, 50.0);
+
         var buffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -435,6 +469,99 @@ function main() {
     }
 
     function funHurufI(){
+        // Vertex shader
+        var vertexShaderCode = `
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        attribute vec3 aNormal;
+        varying vec3 fragColor;
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        uniform mat4 uModel;
+        uniform mat4 uView;
+        uniform mat4 uProjection;
+        void main(){
+            fragColor = aColor;
+            vNormal = aNormal;
+            gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+            vPosition = (uModel * vec4(aPosition, 1.0)).xyz;
+        }
+        `;
+
+        var vertexShaderObject = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(vertexShaderObject, vertexShaderCode);
+        gl.compileShader(vertexShaderObject); 
+
+        // Fragment shader
+        var fragmentShaderCode = `
+        precision mediump float;
+        varying vec3 fragColor;
+        uniform vec3 uLightConstant;      // merepresentasikan warna sumber cahaya
+        uniform float uAmbientIntensity;    // merepresentasikan intensitas cahaya sekitar
+        varying vec3 vNormal;
+        varying vec3 vPosition;             // titik fragmen
+        uniform vec3 uLightPosition;        // titik lokasi sumber cahaya
+        uniform vec3 uViewerPosition;       // titik lokasi mata atau kamera pengamat
+        // uniform vec3 uLightDirection;       // vektor arah datang sumber cahaya
+        uniform mat3 uNormalModel;
+        void main() {
+            vec3 ambient = uLightConstant * uAmbientIntensity;
+            vec3 lightRay = vPosition - uLightPosition;
+            // vec3 normalizedLight = normalize(-uLightDirection);  // diffuse directional light
+            vec3 normalizedLight = normalize(-lightRay);            // diffuse point light
+            vec3 normalizedNormal = normalize(uNormalModel * vNormal);
+            float cosTheta = dot(normalizedNormal, normalizedLight);
+            vec3 diffuse = vec3(0.0, 0.0, 0.0);
+            if (cosTheta > 0.0) {
+                float diffuseIntensity = cosTheta;
+                diffuse = uLightConstant * diffuseIntensity;
+            }
+            vec3 normalizedReflector = normalize(reflect(lightRay, normalizedNormal));
+            vec3 normalizedViewer = normalize(uViewerPosition - vPosition);
+            float cosPhi = dot(normalizedReflector, normalizedViewer);
+            vec3 specular = vec3(0.0, 0.0, 0.0);
+            if (cosPhi > 0.0) {
+                float shininessConstant = 100.0;    // batas minimum spesifikasi spekular untuk materi logam
+                float specularIntensity = pow(cosPhi, shininessConstant);
+                specular = uLightConstant * specularIntensity;
+            }
+            vec3 phong = ambient + diffuse + specular;
+            gl_FragColor = vec4(phong * fragColor, 1.0);
+        }
+        `;
+        var fragmentShaderObject = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragmentShaderObject, fragmentShaderCode);
+        gl.compileShader(fragmentShaderObject); 
+
+        var shaderProgram = gl.createProgram(); // wadah dari executable (.exe)
+        gl.attachShader(shaderProgram, vertexShaderObject);
+        gl.attachShader(shaderProgram, fragmentShaderObject);
+        gl.linkProgram(shaderProgram);
+        gl.useProgram(shaderProgram);
+
+        // mengajari GPU bagaimana cara mengoleksi nilai posisi dari ARRAY_BUFFER
+        // untuk setiap vertex yang sedang diproses
+
+        // Variabel pointer ke GLSL
+        var uModel = gl.getUniformLocation(shaderProgram, "uModel");
+        // View
+        // var cameraX = 0.0;
+        // var cameraZ = 5.0;
+        var camera = [0.0, 0.0, 5.0];
+        var uView = gl.getUniformLocation(shaderProgram, "uView");
+        var view = glMatrix.mat4.create();
+        glMatrix.mat4.lookAt(
+            view,
+            camera,                    // the location of the eye or the camera
+            [camera[0], 0.0, -10],        // the point where the camera look at
+            [0.0, 1.0, 0.0]
+        );
+
+        // Projection
+        var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
+        var perspective = glMatrix.mat4.create();
+        glMatrix.mat4.perspective(perspective, glMatrix.glMatrix.toRadian(75), 1.0, 0.5, 50.0);
+
         var buffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
